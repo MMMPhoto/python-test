@@ -12,13 +12,13 @@ def numberGame():
     print(f'{name}, I am thinking of a number between 1 and 20.')
 
     # Assign random number
-    number = random.randint(1, 20)
+    secretNumber = random.randint(1, 20)
 
     # Give player 6 guesses
-    for num in range(6):
+    for guesses in range(6):
         guess = 0
-        if num > 0:
-            print(f'Number of guesses remaining: {6 - num}')
+        if guesses > 0:
+            print(f'Number of guesses remaining: {6 - guesses}')
 
         # Input validation
         while True:
@@ -34,20 +34,20 @@ def numberGame():
                 break
         
         # Check against random value
-        if guess == number:
+        if guess == secretNumber:
             break
-        elif guess > number:
+        elif guess > secretNumber:
             print('Your guess is too high.')
             continue
-        elif guess < number:
+        elif guess < secretNumber:
             print('Your guess is too low.')
             continue
 
     # Either too many tries or correct guess
-    if guess == number:
-        print(f'Good job, {name}! You guessed the number in {num + 1} tries')
+    if guess == secretNumber:
+        print(f'Good job, {name}! You guessed the number in {guesses + 1} tries')
     else:
-        print(f"Too bad! You couldn't guess in time. The number I was thinking of was {number}!")
+        print(f"Too bad! You couldn't guess in time. The number I was thinking of was {secretNumber}!")
 
     # Ask to play again
     print('Would you like to play again? (Y/N)')
