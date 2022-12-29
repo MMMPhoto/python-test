@@ -14,18 +14,23 @@ number = random.randint(1, 20)
 
 # Give player 6 guesses
 for num in range(6):
-    print('Take a guess.')
     guess = 0
-    print(f'number of guesses: {num}')
+    print(f'number of guesses remaining: {6 - num}')
 
-    # Input validation
-    while int(guess) < 1 or int(guess) > 20:
-        guess = input()
-        if int(guess) < 1 or int(guess) > 20:
+    # Input validation and 
+    while True:
+        try:
+            guess = int(input('Take a guess:'))
+            while int(guess) < 1 or int(guess) > 20:
+                print('You must enter an integer between 1 and 20.')
+                guess = int(input('Take a guess:'))
+        except ValueError:
             print('You must enter an integer between 1 and 20.')
+            continue
+        else:
+            break
 
     if int(guess) == int(number):
-        print(f'Good job, {name}! You guessed the number in {num + 1} tries')
         break
     elif int(guess) > int(number):
         print('Your guess is too high.')
@@ -34,5 +39,8 @@ for num in range(6):
         print('Your guess is too low.')
         continue
 
-# After player runs out of tries
-print(f"Too bad! You couldn't guess in time. The number I was thinking of was {number}!")
+# Either too many tries or correct guess
+if int(guess) == int(number):
+    print(f'Good job, {name}! You guessed the number in {num + 1} tries')
+else:
+    print(f"Too bad! You couldn't guess in time. The number I was thinking of was {number}!")
