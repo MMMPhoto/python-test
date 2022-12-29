@@ -15,7 +15,14 @@ number = random.randint(1, 20)
 # Give player 6 guesses
 for num in range(6):
     print('Take a guess.')
-    guess = input()
+    guess = 0
+    print(f'number of guesses: {num}')
+
+    # Input validation
+    while int(guess) < 1 or int(guess) > 20:
+        guess = input()
+        if int(guess) < 1 or int(guess) > 20:
+            print('You must enter an integer between 1 and 20.')
 
     if int(guess) == int(number):
         print(f'Good job, {name}! You guessed the number in {num + 1} tries')
