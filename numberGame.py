@@ -38,10 +38,8 @@ def numberGame():
             break
         elif guess > secretNumber:
             print('Your guess is too high.')
-            continue
         elif guess < secretNumber:
             print('Your guess is too low.')
-            continue
 
     # Either too many tries or correct guess
     if guess == secretNumber:
