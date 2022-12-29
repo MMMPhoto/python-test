@@ -46,3 +46,16 @@ if guess == number:
     print(f'Good job, {name}! You guessed the number in {num + 1} tries')
 else:
     print(f"Too bad! You couldn't guess in time. The number I was thinking of was {number}!")
+
+# Ask to play again
+print('Would you like to play again? (Y/N)')
+playAgain = 0
+while True:
+    playAgain = input()
+    if playAgain == 'Y' or playAgain == 'N':
+        break
+    else:
+        print('Please answer Y/N')
+        continue
+
+print('play again')
