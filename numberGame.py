@@ -26,3 +26,6 @@ for num in range(6):
     elif int(guess) < int(number):
         print('Your guess is too low.')
         continue
+
+# After player runs out of tries
+print(f"Too bad! You couldn't guess in time. The number I was thinking of was {number}!")
