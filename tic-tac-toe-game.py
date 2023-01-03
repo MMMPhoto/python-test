@@ -11,7 +11,28 @@ playerTurn = input()
 
 # Game function
 def ticTacToeGame():
-    # # Explain the game
+
+    # Set gameplay dictionary
+        # The keys for the following dictionary follow abbreviations that correspond to the rows of the gameplay grid:
+        # First letter denotes the row, "Upper(U)", "Middle(M)", or "Lower(L)"
+        # Second Letter denotes the row: "Left(L)", "Middle(M)", or "Right(R)"
+        # Entire board starts with empty strings
+    gameplay = {
+        "UL": " ",
+        "UM": " ",
+        "UR": " ",
+        "ML": " ",
+        "MM": " ",
+        "MR": " ",
+        "LL": " ",
+        "LM": " ",
+        "LR": " "
+    }
+
+    # Explain the game
+    print('The computer will go first.')
+
+    print()
     # print(f'{name}, I am thinking of a number between 1 and 20.')
 
     # # Assign random number
