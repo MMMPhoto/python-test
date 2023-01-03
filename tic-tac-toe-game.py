@@ -32,7 +32,7 @@ def ticTacToeGame():
     # Explain the game
     print('The computer will go first.')
 
-    print()
+    print(f"{gameplay['UL']}|{gameplay['UM']}|{gameplay['UR']}\n-----\n{gameplay['ML']}|{gameplay['MM']}|{gameplay['MR']}\n-----\n{gameplay['LL']}|{gameplay['LM']}|{gameplay['LR']}")
     # print(f'{name}, I am thinking of a number between 1 and 20.')
 
     # # Assign random number
