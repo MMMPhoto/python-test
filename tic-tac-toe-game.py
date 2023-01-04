@@ -18,10 +18,6 @@ else:
 def ticTacToeGame():
 
     # Set gameplay dictionary
-        # The keys for the following dictionary follow abbreviations that correspond to the rows of the gameplay grid:
-        # First letter denotes the row, "Upper(U)", "Middle(M)", or "Lower(L)"
-        # Second Letter denotes the row: "Left(L)", "Middle(M)", or "Right(R)"
-        # Entire board starts with empty strings
     gameplay = {
         1: " ",
         2: " ",
@@ -37,16 +33,18 @@ def ticTacToeGame():
     # Set gameplay variables
     isComputersTurn = True
     playedSpaces = []
-    gameOver = False
 
     # Start game
     print('The computer will go first:')
+
+    # Explain board input choices
+    print('To play a turn, enter a number between 1 and 9 which corresponds to an open space. \nThe top row (from left to right) is 1, 2, and 3. \nMiddle row (L to R) is 4, 5, and 6. Bottom row is 7, 8, 9.')
 
     # Loop through game play
     for turns in range(1, 9):
 
         # Define move variables
-        move = random.randint(1, 9)
+        move = 1
         mark = comp
 
         # Player or computer moves
@@ -55,7 +53,15 @@ def ticTacToeGame():
                 move = random.randint(1, 9)
             mark = comp
         else:
-            move = int(input("Choose a move: "))
+            # Input validation
+            while True:
+                try:
+                    while move < 1 or move > 9 or move in playedSpaces:
+                        move = int(input('Enter a whole number between 1 and 9 to move: '))
+                except ValueError:
+                    continue
+                else:
+                    break
             mark = player
 
         # Update board and played spaces tally
@@ -76,11 +82,11 @@ def ticTacToeGame():
                gameplay[3] == gameplay[6] == gameplay[9] or \
                gameplay[1] == gameplay[5] == gameplay[9] or \
                gameplay[3] == gameplay[5] == gameplay[7]:
-               gameOver = True
                break
 
         # Change turns
         isComputersTurn = not isComputersTurn
+
 
     #     # Input validation
     #     while True:
