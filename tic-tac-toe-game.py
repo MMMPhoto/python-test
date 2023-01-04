@@ -6,8 +6,8 @@ import sys
 print('Hello, welcome to the Tic Tac Toe game!')
 
 # Ask player X or O
-print('Would you like to be X or O?')
-playerTurn = input()
+# print('Would you like to be X or O?')
+# playerTurn = input()
 
 # Game function
 def ticTacToeGame():
@@ -18,25 +18,31 @@ def ticTacToeGame():
         # Second Letter denotes the row: "Left(L)", "Middle(M)", or "Right(R)"
         # Entire board starts with empty strings
     gameplay = {
-        "UL": " ",
-        "UM": " ",
-        "UR": " ",
-        "ML": " ",
-        "MM": " ",
-        "MR": " ",
-        "LL": " ",
-        "LM": " ",
-        "LR": " "
+        0: " ",
+        1: " ",
+        2: " ",
+        3: " ",
+        4: " ",
+        5: " ",
+        6: " ",
+        7: " ",
+        8: " "
     }
 
-    # Explain the game
+    # Set gameplay variables
+    totalTurns = 9
+    computerTurn = True
+
+    # Start game
     print('The computer will go first.')
 
-    print(f"{gameplay['UL']}|{gameplay['UM']}|{gameplay['UR']}\n-----\n{gameplay['ML']}|{gameplay['MM']}|{gameplay['MR']}\n-----\n{gameplay['LL']}|{gameplay['LM']}|{gameplay['LR']}")
-    # print(f'{name}, I am thinking of a number between 1 and 20.')
+    # Assign random number for computer's first turn
+    compfirstPlay = random.randint(0, 8)
+    
+    gameplay[compfirstPlay] = "X"
 
-    # # Assign random number
-    # secretNumber = random.randint(1, 20)
+    # Display of board based on gamplay dictonary
+    print(f"{gameplay[0]}|{gameplay[1]}|{gameplay[2]}\n-----\n{gameplay[3]}|{gameplay[4]}|{gameplay[5]}\n-----\n{gameplay[6]}|{gameplay[7]}|{gameplay[8]}")
 
     # # Give player 6 guesses
     # for guesses in range(6):
