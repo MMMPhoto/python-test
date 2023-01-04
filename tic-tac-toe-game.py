@@ -82,11 +82,6 @@ def ticTacToeGame():
         # Change turns
         isComputersTurn = not isComputersTurn
 
-    # for guesses in range(6):
-    #     guess = 0
-    #     if guesses > 0:
-    #         print(f'Number of guesses remaining: {6 - guesses}')
-
     #     # Input validation
     #     while True:
     #         try:
@@ -99,20 +94,6 @@ def ticTacToeGame():
     #             continue
     #         else:
     #             break
-        
-    #     # Check against random value
-    #     if guess == secretNumber:
-    #         break
-    #     elif guess > secretNumber:
-    #         print('Your guess is too high.')
-    #     elif guess < secretNumber:
-    #         print('Your guess is too low.')
-
-    # # Either too many tries or correct guess
-    # if guess == secretNumber:
-    #     print(f'Good job, {name}! You guessed the number in {guesses + 1} tries')
-    # else:
-    #     print(f"Too bad! You couldn't guess in time. The number I was thinking of was {secretNumber}!")
 
     # Determine who won game
     if len(playedSpaces) == 9:
