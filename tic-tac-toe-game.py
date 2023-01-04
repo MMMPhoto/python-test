@@ -4,10 +4,15 @@ import sys
 
 # Introduce player to game
 print('Hello, welcome to the Tic Tac Toe game!')
+comp = "O"
 
 # Ask player X or O
-# print('Would you like to be X or O?')
-# playerTurn = input()
+print('Would you like to be X or O?')
+player = input()
+if player == "X":
+    comp = "O"
+else:
+    comp = "X"
 
 # Game function
 def ticTacToeGame():
@@ -18,7 +23,6 @@ def ticTacToeGame():
         # Second Letter denotes the row: "Left(L)", "Middle(M)", or "Right(R)"
         # Entire board starts with empty strings
     gameplay = {
-        0: " ",
         1: " ",
         2: " ",
         3: " ",
@@ -26,25 +30,43 @@ def ticTacToeGame():
         5: " ",
         6: " ",
         7: " ",
-        8: " "
+        8: " ",
+        9: " "
     }
 
     # Set gameplay variables
     totalTurns = 9
-    computerTurn = True
+    isComputersTurn = True
+    playedSpaces = []
 
     # Start game
     print('The computer will go first.')
 
     # Assign random number for computer's first turn
-    compfirstPlay = random.randint(0, 8)
-    
-    gameplay[compfirstPlay] = "X"
+    compfirstPlay = random.randint(0, totalTurns)
+    playedSpaces.append(compfirstPlay)
+    gameplay[compfirstPlay] = comp
 
-    # Display of board based on gamplay dictonary
-    print(f"{gameplay[0]}|{gameplay[1]}|{gameplay[2]}\n-----\n{gameplay[3]}|{gameplay[4]}|{gameplay[5]}\n-----\n{gameplay[6]}|{gameplay[7]}|{gameplay[8]}")
+    for turns in range(1, 9):
+        # Change turns
+        isComputersTurn = not isComputersTurn
 
-    # # Give player 6 guesses
+        # Display of board based on gamplay dictonary
+        print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
+
+        # Player or computer moves
+        if isComputersTurn:
+            compTurn = random.randint(1, 9)
+            while compTurn in playedSpaces:
+                compTurn = random.randint(1, 9)
+            gameplay[compTurn] = comp
+            playedSpaces.append(compTurn)
+        else:
+            print("Choose a move")
+            playerMove = int(input())
+            gameplay[playerMove] = player
+            playedSpaces.append(playerMove)        
+
     # for guesses in range(6):
     #     guess = 0
     #     if guesses > 0:
