@@ -36,6 +36,12 @@ def ticTacToeGame():
         9: " "
     }
 
+    # Print gameboard function
+    def displayBoard(gameplay):
+        print('')
+        print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
+        print('')
+
     # Set gameplay variables
     isComputersTurn = True
     playedSpaces = []
@@ -81,10 +87,8 @@ def ticTacToeGame():
 
         # Display of board based on gamplay dictonary
         if isComputersTurn or turns == 9:
-            print('')
-            print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
-            print('')
-
+            displayBoard(gameplay)
+        
         # Check for win function
         def checkWin(a, b, c):
             global gameOver
@@ -113,6 +117,7 @@ def ticTacToeGame():
     elif isComputersTurn:
         print("You lost!")
     else:
+        displayBoard(gameplay)
         print("You won!")
 
     # Ask to play again
