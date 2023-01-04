@@ -57,15 +57,15 @@ def ticTacToeGame():
     print('The computer will go first:')
 
     # Loop through game play
-    for turns in range(1, 9):
+    for turns in range(1, 10):
 
         # Define move variables
-        move = 1
+        move = 0
         mark = comp
 
         # Player or computer moves
         if isComputersTurn:
-            while move in playedSpaces:
+            while move < 1 or move > 9 or move in playedSpaces:
                 move = random.randint(1, 9)
                 mark = comp
         else:
@@ -92,7 +92,7 @@ def ticTacToeGame():
         # Check for win function
         def checkWin(a, b, c):
             global gameOver
-            if gameplay[a] == gameplay[b] == gameplay[c] and a != " ":
+            if gameplay[a] == gameplay[b] == gameplay[c] and gameplay[a] != " ":
                 gameOver = True
                 
         # Check for win
