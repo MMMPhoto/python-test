@@ -20,7 +20,6 @@ while True:
         print('Please answer either X or O:')
         continue
 
-
 # Game function
 def ticTacToeGame():
 
@@ -65,7 +64,7 @@ def ticTacToeGame():
             while True:
                 try:
                     while move < 1 or move > 9 or move in playedSpaces:
-                        move = int(input('Enter a whole number between 1 and 9 to move: '))
+                        move = int(input('Enter a number that corresponds to an empty space to move (an integer between 1 and 9): '))
                 except ValueError:
                     continue
                 else:
