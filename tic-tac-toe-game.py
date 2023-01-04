@@ -42,30 +42,35 @@ def ticTacToeGame():
     # Start game
     print('The computer will go first.')
 
-    # Assign random number for computer's first turn
-    compfirstPlay = random.randint(0, totalTurns)
-    playedSpaces.append(compfirstPlay)
-    gameplay[compfirstPlay] = comp
-
+    # Loop through game play
     for turns in range(1, 9):
-        # Change turns
-        isComputersTurn = not isComputersTurn
+
+        # Define move variables
+        move = ""
+        mark = ""
+        if isComputersTurn:
+            mark = comp
+        else:
+            mark = player
+
+        # Player or computer moves
+        if isComputersTurn:
+            move = random.randint(1, 9)
+            while move in playedSpaces:
+                move = random.randint(1, 9)
+        else:
+            print("Choose a move")
+            move = int(input())
+
+        # Update board and played spaces tally
+        gameplay[move] = mark
+        playedSpaces.append(move)
 
         # Display of board based on gamplay dictonary
         print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
 
-        # Player or computer moves
-        if isComputersTurn:
-            compTurn = random.randint(1, 9)
-            while compTurn in playedSpaces:
-                compTurn = random.randint(1, 9)
-            gameplay[compTurn] = comp
-            playedSpaces.append(compTurn)
-        else:
-            print("Choose a move")
-            playerMove = int(input())
-            gameplay[playerMove] = player
-            playedSpaces.append(playerMove)        
+        # Change turns
+        isComputersTurn = not isComputersTurn
 
     # for guesses in range(6):
     #     guess = 0
