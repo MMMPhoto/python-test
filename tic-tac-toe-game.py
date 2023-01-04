@@ -8,11 +8,18 @@ comp = "O"
 
 # Ask player X or O
 print('Would you like to be X or O?')
-player = input()
-if player == "X":
-    comp = "O"
-else:
-    comp = "X"
+while True:
+    player = input()
+    if player == "X":
+        comp = "O"
+        break
+    elif player == "O":
+        comp = "X"
+        break
+    else:
+        print('Please answer either X or O:')
+        continue
+
 
 # Game function
 def ticTacToeGame():
@@ -78,7 +85,6 @@ def ticTacToeGame():
             if gameplay[a] == gameplay[b] == gameplay[c] and a != " ":
                 gameOver = True
                 
-
         # Check for win
         if turns >= 5:
             checkWin(1, 2, 3)
@@ -91,18 +97,6 @@ def ticTacToeGame():
             checkWin(3, 5, 7)
             if gameOver == True:
                 break
-
-
-
-            # if gameplay[1] == gameplay[2] == gameplay[3] or \
-            #    gameplay[4] == gameplay[5] == gameplay[6] or \
-            #    gameplay[7] == gameplay[8] == gameplay[9] or \
-            #    gameplay[1] == gameplay[4] == gameplay[7] or \
-            #    gameplay[2] == gameplay[5] == gameplay[8] or \
-            #    gameplay[3] == gameplay[6] == gameplay[9] or \
-            #    gameplay[1] == gameplay[5] == gameplay[9] or \
-            #    gameplay[3] == gameplay[5] == gameplay[7]:
-            #    break
 
         # Change turns
         isComputersTurn = not isComputersTurn
