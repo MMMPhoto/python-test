@@ -37,6 +37,7 @@ def ticTacToeGame():
     # Set gameplay variables
     isComputersTurn = True
     playedSpaces = []
+    gameOver = False
 
     # Start game
     print('The computer will go first:')
@@ -62,11 +63,24 @@ def ticTacToeGame():
         playedSpaces.append(move)
 
         # Display of board based on gamplay dictonary
-        if isComputersTurn:
+        if isComputersTurn or turns == 9:
             print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
 
         # Change turns
         isComputersTurn = not isComputersTurn
+
+        # Check for win
+        if turns >= 5:
+            if gameplay[1] == gameplay[2] == gameplay[3] or \
+               gameplay[4] == gameplay[5] == gameplay[6] or \
+               gameplay[7] == gameplay[8] == gameplay[9] or \
+               gameplay[1] == gameplay[4] == gameplay[7] or \
+               gameplay[2] == gameplay[5] == gameplay[8] or \
+               gameplay[3] == gameplay[6] == gameplay[9] or \
+               gameplay[1] == gameplay[5] == gameplay[9] or \
+               gameplay[3] == gameplay[5] == gameplay[7]:
+               gameOver = True
+               break
 
     # for guesses in range(6):
     #     guess = 0
@@ -101,6 +115,7 @@ def ticTacToeGame():
     #     print(f"Too bad! You couldn't guess in time. The number I was thinking of was {secretNumber}!")
 
     # Ask to play again
+    print('The game is over!')
     print('Would you like to play again? (Y/N)')
     playAgain = 0
     while True:
