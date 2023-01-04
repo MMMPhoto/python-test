@@ -66,9 +66,6 @@ def ticTacToeGame():
         if isComputersTurn or turns == 9:
             print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
 
-        # Change turns
-        isComputersTurn = not isComputersTurn
-
         # Check for win
         if turns >= 5:
             if gameplay[1] == gameplay[2] == gameplay[3] or \
@@ -81,6 +78,9 @@ def ticTacToeGame():
                gameplay[3] == gameplay[5] == gameplay[7]:
                gameOver = True
                break
+
+        # Change turns
+        isComputersTurn = not isComputersTurn
 
     # for guesses in range(6):
     #     guess = 0
@@ -114,8 +114,15 @@ def ticTacToeGame():
     # else:
     #     print(f"Too bad! You couldn't guess in time. The number I was thinking of was {secretNumber}!")
 
+    # Determine who won game
+    if len(playedSpaces) == 9:
+        print("Game ended in a draw!")
+    elif isComputersTurn:
+        print("You lost!")
+    else:
+        print("You won!")
+
     # Ask to play again
-    print('The game is over!')
     print('Would you like to play again? (Y/N)')
     playAgain = 0
     while True:
