@@ -39,13 +39,16 @@ def ticTacToeGame():
     # Set gameplay variables
     isComputersTurn = True
     playedSpaces = []
+    global gameOver
     gameOver = False
+
+    # Explain board input choices
+    print('')
+    print('To play a turn, enter a number between 1 and 9 which corresponds to an open space. \nThe top row (from left to right) is 1, 2, and 3. \nMiddle row (L to R) is 4, 5, and 6. Bottom row is 7, 8, 9.')
+    print('')
 
     # Start game
     print('The computer will go first:')
-
-    # Explain board input choices
-    print('To play a turn, enter a number between 1 and 9 which corresponds to an open space. \nThe top row (from left to right) is 1, 2, and 3. \nMiddle row (L to R) is 4, 5, and 6. Bottom row is 7, 8, 9.')
 
     # Loop through game play
     for turns in range(1, 9):
@@ -58,18 +61,19 @@ def ticTacToeGame():
         if isComputersTurn:
             while move in playedSpaces:
                 move = random.randint(1, 9)
-            mark = comp
+                mark = comp
         else:
-            # Input validation
+            # Player input validation
             while True:
                 try:
                     while move < 1 or move > 9 or move in playedSpaces:
-                        move = int(input('Enter a number that corresponds to an empty space to move (an integer between 1 and 9): '))
+                        print('Enter a number that corresponds to an empty space to move (an integer between 1 and 9): ')
+                        move = int(input())
+                        mark = player
                 except ValueError:
                     continue
                 else:
                     break
-            mark = player
 
         # Update board and played spaces tally
         gameplay[move] = mark
@@ -77,10 +81,13 @@ def ticTacToeGame():
 
         # Display of board based on gamplay dictonary
         if isComputersTurn or turns == 9:
+            print('')
             print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
+            print('')
 
         # Check for win function
         def checkWin(a, b, c):
+            global gameOver
             if gameplay[a] == gameplay[b] == gameplay[c] and a != " ":
                 gameOver = True
                 
@@ -99,20 +106,6 @@ def ticTacToeGame():
 
         # Change turns
         isComputersTurn = not isComputersTurn
-
-
-    #     # Input validation
-    #     while True:
-    #         try:
-    #             guess = int(input('Take a guess: '))
-    #             while guess < 1 or guess > 20:
-    #                 print('You must enter an integer between 1 and 20.')
-    #                 guess = int(input('Take a guess: '))
-    #         except ValueError:
-    #             print('You must enter an integer between 1 and 20.')
-    #             continue
-    #         else:
-    #             break
 
     # Determine who won game
     if len(playedSpaces) == 9:
