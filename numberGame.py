@@ -23,10 +23,9 @@ def numberGame():
         # Input validation
         while True:
             try:
-                guess = int(input('Take a guess: '))
                 while guess < 1 or guess > 20:
-                    print('You must enter an integer between 1 and 20.')
                     guess = int(input('Take a guess: '))
+                    print('You must enter an integer between 1 and 20.')
             except ValueError:
                 print('You must enter an integer between 1 and 20.')
                 continue
