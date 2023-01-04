@@ -33,6 +33,7 @@ def ticTacToeGame():
     # Set gameplay variables
     isComputersTurn = True
     playedSpaces = []
+    gameOver = False
 
     # Start game
     print('The computer will go first:')
@@ -72,17 +73,36 @@ def ticTacToeGame():
         if isComputersTurn or turns == 9:
             print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
 
+        # Check for win function
+        def checkWin(a, b, c):
+            if gameplay[a] == gameplay[b] == gameplay[c] and a != " ":
+                gameOver = True
+                
+
         # Check for win
         if turns >= 5:
-            if gameplay[1] == gameplay[2] == gameplay[3] or \
-               gameplay[4] == gameplay[5] == gameplay[6] or \
-               gameplay[7] == gameplay[8] == gameplay[9] or \
-               gameplay[1] == gameplay[4] == gameplay[7] or \
-               gameplay[2] == gameplay[5] == gameplay[8] or \
-               gameplay[3] == gameplay[6] == gameplay[9] or \
-               gameplay[1] == gameplay[5] == gameplay[9] or \
-               gameplay[3] == gameplay[5] == gameplay[7]:
-               break
+            checkWin(1, 2, 3)
+            checkWin(4, 5, 6)
+            checkWin(7, 8, 9)
+            checkWin(1, 4, 7)
+            checkWin(2, 5, 8)
+            checkWin(3, 6, 9)
+            checkWin(1, 5, 9)
+            checkWin(3, 5, 7)
+            if gameOver == True:
+                break
+
+
+
+            # if gameplay[1] == gameplay[2] == gameplay[3] or \
+            #    gameplay[4] == gameplay[5] == gameplay[6] or \
+            #    gameplay[7] == gameplay[8] == gameplay[9] or \
+            #    gameplay[1] == gameplay[4] == gameplay[7] or \
+            #    gameplay[2] == gameplay[5] == gameplay[8] or \
+            #    gameplay[3] == gameplay[6] == gameplay[9] or \
+            #    gameplay[1] == gameplay[5] == gameplay[9] or \
+            #    gameplay[3] == gameplay[5] == gameplay[7]:
+            #    break
 
         # Change turns
         isComputersTurn = not isComputersTurn
