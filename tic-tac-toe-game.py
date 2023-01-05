@@ -34,8 +34,8 @@ def ticTacToeGame():
     # Set gameplay variables
     isComputersTurn = True
     playedSpaces = []
-    global gameOver
-    gameOver = False
+    global gameWon
+    gameWon = False
 
     # Explain board input choices
     print('\nTo play a turn, enter a number between 1 and 9 which corresponds to an open space. \nThe top row (from left to right) is 1, 2, and 3. \nMiddle row (L to R) is 4, 5, and 6. Bottom row is 7, 8, 9.\n')
@@ -75,9 +75,9 @@ def ticTacToeGame():
         
         # Check for win function
         def checkWin(a, b, c):
-            global gameOver
+            global gameWon
             if gameplay[a] == gameplay[b] == gameplay[c] and gameplay[a] != " ":
-                gameOver = True
+                gameWon = True
                 
         # Check for win
         if turns >= 5:
@@ -89,20 +89,21 @@ def ticTacToeGame():
             checkWin(3, 6, 9)
             checkWin(1, 5, 9)
             checkWin(3, 5, 7)
-            if gameOver == True:
+            if gameWon == True:
                 break
 
         # Change turns before loop repeats
         isComputersTurn = not isComputersTurn
 
     # Determine who won game
-    if len(playedSpaces) == 9:
+    if gameWon == True:
+        if isComputersTurn:
+            print("You lost!")
+        else: # Default remaining is player's turn, meaning they won
+            displayBoard(gameplay)
+            print("You won!")
+    else:
         print("Game ended in a draw!")
-    elif isComputersTurn:
-        print("You lost!")
-    else: # Default remaining is player's turn, meaning they won
-        displayBoard(gameplay)
-        print("You won!")
 
     # Ask to play again
     print('Would you like to play again? (Y/N)')
