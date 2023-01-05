@@ -10,6 +10,7 @@ comp = "O"
 print('Would you like to be X or O?')
 while True:
     player = input()
+    player = player.upper()
     if player == "X":
         comp = "O"
         break
@@ -108,6 +109,7 @@ def ticTacToeGame():
     playAgain = 0
     while True:
         playAgain = input()
+        playAgain = playAgain.upper()
         if playAgain == 'Y':
             ticTacToeGame()
         elif playAgain == 'N':
