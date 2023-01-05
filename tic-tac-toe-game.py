@@ -28,9 +28,7 @@ def ticTacToeGame():
 
     # Print gameboard function
     def displayBoard(gameplay):
-        print()
-        print(f"{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}")
-        print()
+        print(f"\n{gameplay[1]}|{gameplay[2]}|{gameplay[3]}\n-----\n{gameplay[4]}|{gameplay[5]}|{gameplay[6]}\n-----\n{gameplay[7]}|{gameplay[8]}|{gameplay[9]}\n")
 
     # Set gameplay variables
     isComputersTurn = True
@@ -39,9 +37,7 @@ def ticTacToeGame():
     gameOver = False
 
     # Explain board input choices
-    print()
-    print('To play a turn, enter a number between 1 and 9 which corresponds to an open space. \nThe top row (from left to right) is 1, 2, and 3. \nMiddle row (L to R) is 4, 5, and 6. Bottom row is 7, 8, 9.')
-    print()
+    print('\nTo play a turn, enter a number between 1 and 9 which corresponds to an open space. \nThe top row (from left to right) is 1, 2, and 3. \nMiddle row (L to R) is 4, 5, and 6. Bottom row is 7, 8, 9.\n')
 
     # Start game
     print('The computer will go first:')
