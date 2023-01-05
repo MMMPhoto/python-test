@@ -76,7 +76,7 @@ def ticTacToeGame():
         # Check for win function
         def checkWin(a, b, c):
             global gameWon
-            if gameplay[a] == gameplay[b] == gameplay[c] and gameplay[a] != " ":
+            if gameplay[a] == gameplay[b] == gameplay[c] and not gameplay[a].isspace():
                 gameWon = True
                 
         # Check for win
