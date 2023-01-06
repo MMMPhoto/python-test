@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # Guess the number game
 import random
 import sys

@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # Tic Tac Toe game
 import random
 import sys
