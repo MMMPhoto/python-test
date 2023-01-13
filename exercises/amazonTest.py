@@ -8,3 +8,6 @@ elems = browser.find_elements(By.CSS_SELECTOR, '#kindle-price')
 price = elems[0].text
 
 print(price)
+
+browser.close()
+browser.quit()

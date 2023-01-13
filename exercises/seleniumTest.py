@@ -9,3 +9,6 @@ aboutText = ''
 for i in range(len(elems) - 1):
     aboutText += f'{aboutText}{elems[i].text} '
 print(aboutText)
+
+browser.close()
+browser.quit()
